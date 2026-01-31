@@ -1,0 +1,139 @@
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import Project from './models/Project.js';
+
+// Load environment variables
+dotenv.config();
+
+// MongoDB connection
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI);
+        console.log('✅ MongoDB Connected for seeding');
+    } catch (error) {
+        console.error('❌ MongoDB Connection Error:', error.message);
+        process.exit(1);
+    }
+};
+
+// Seed data - NGO Projects
+const projects = [
+    {
+        title: "Miyawaki Forest Development",
+        description: "Developed 12 large Miyawaki forests at Hanuman Tekdi, Pipri Meghe, Arvi Road, Wardha. Successfully converted barren plateau into thriving green ecosystems with over 13,500 saplings planted. These dense forests grow 10 times faster and are 30 times denser than conventional plantations.",
+        category: "forest",
+        image: "/hero-bg.png",
+        impactMetrics: {
+            value: "13,500+",
+            unit: "Saplings Planted"
+        },
+        isActive: true
+    },
+    {
+        title: "Groundwater Recharge Systems",
+        description: "Implemented 250 CCT (Continuous Contour Trenches) measuring 8×2×2 feet each, enabling approximately 2 crore litres of annual groundwater recharge. This innovative system captures rainwater and allows it to percolate into the ground, replenishing aquifers and securing water for future generations.",
+        category: "water",
+        image: "/water-project.png",
+        impactMetrics: {
+            value: "2 Crore",
+            unit: "Litres/Year Recharged"
+        },
+        isActive: true
+    },
+    {
+        title: "Community Water Management Network",
+        description: "Developed comprehensive water management infrastructure including roof water harvesting systems, large and small soak pits, and 250+ Nanded-pattern soak pits. Created a 2.5 km channelised CCT network for efficient rainwater management across the community.",
+        category: "community",
+        image: "/community.png",
+        impactMetrics: {
+            value: "250+",
+            unit: "Soak Pits Installed"
+        },
+        isActive: true
+    },
+    {
+        title: "Wastewater Reuse Initiative",
+        description: "Pioneering sustainable water management by reusing 3 lakh litres per day of treated wastewater from purification plant for groundwater recharge. This innovative approach reduces water wastage and contributes to the circular water economy.",
+        category: "water",
+        image: "/water-project.png",
+        impactMetrics: {
+            value: "3 Lakh",
+            unit: "Litres/Day Reused"
+        },
+        isActive: true
+    },
+    {
+        title: "Bhujal Moist Soil Appliance",
+        description: "Developed and deployed innovative Bhujal Moist Soil Appliance technology for moisture retention and groundwater sustainability. This cutting-edge solution ensures long-term water security for both agricultural and domestic use, helping farmers maintain soil moisture during dry periods.",
+        category: "technology",
+        image: "/hero-bg.png",
+        impactMetrics: {
+            value: "Innovative",
+            unit: "Sustainable Solution"
+        },
+        isActive: true
+    },
+    {
+        title: "Water Bank Project",
+        description: "Established Water Bank Project with ₹4.5 lakh fund supporting water conservation initiatives across 18 villages in 4 talukas. Empowering communities to manage their water resources sustainably and build resilience against water scarcity.",
+        category: "community",
+        image: "/community.png",
+        impactMetrics: {
+            value: "18",
+            unit: "Villages Supported"
+        },
+        isActive: true
+    },
+    {
+        title: "Satyamev Jayate Water Cup Participation",
+        description: "Active participation in the prestigious Satyamev Jayate Water Cup initiative, mobilizing over 15,000 citizens in Shramdaan (community service) activities. This mass movement has created widespread awareness about water conservation and environmental protection.",
+        category: "community",
+        image: "/community.png",
+        impactMetrics: {
+            value: "15,000+",
+            unit: "Citizens Involved"
+        },
+        isActive: true
+    },
+    {
+        title: "Multi-Taluka Water Conservation Program",
+        description: "Expanded water conservation efforts across 4 talukas, implementing integrated water management solutions. This program combines traditional wisdom with modern technology to ensure water security for rural communities.",
+        category: "water",
+        image: "/water-project.png",
+        impactMetrics: {
+            value: "4",
+            unit: "Talukas Covered"
+        },
+        isActive: true
+    }
+];
+
+// Seed function
+const seedDatabase = async () => {
+    try {
+        await connectDB();
+
+        // Clear existing projects
+        await Project.deleteMany({});
+        console.log('🗑️  Cleared existing projects');
+
+        // Insert new projects
+        const insertedProjects = await Project.insertMany(projects);
+        console.log(`✅ Successfully seeded ${insertedProjects.length} projects`);
+
+        // Display inserted projects
+        console.log('\n📊 Seeded Projects:');
+        insertedProjects.forEach((project, index) => {
+            console.log(`${index + 1}. ${project.title} (${project.category})`);
+        });
+
+        console.log('\n✅ Database seeding completed successfully!');
+        process.exit(0);
+    } catch (error) {
+        console.error('❌ Error seeding database:', error);
+        process.exit(1);
+    }
+};
+
+// Run seed function
+seedDatabase();
