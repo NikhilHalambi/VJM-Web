@@ -9,25 +9,39 @@ const Projects = () => {
     // Fallback static projects (used if API fails)
     const fallbackProjects = [
         {
-            title: "Miyawaki Forest Development",
-            description: "Created 12 large Miyawaki forests at Hanuman Tekdi, Pipri Meghe, Arvi Road, converting barren plateau into thriving green ecosystems with 13,500+ saplings.",
-            image: "/hero-bg.png",
-            category: "Environment",
-            impactMetrics: { value: "13,500+", unit: "saplings" }
+            title: "Community Plantation Drive",
+            description: "Engaging local communities in large-scale tree plantation initiatives to combat climate change and restore green cover in urban and rural areas.",
+            image: "/plantation-drive.jpg",
+            category: "Community",
+            impactMetrics: { value: "Community", unit: "engagement" }
         },
         {
-            title: "Groundwater Recharge Systems",
+            title: "Dengue Malaria Awareness Drive and Youth Empowerment Initiatives",
+            description: "Comprehensive health awareness campaigns focusing on dengue and malaria prevention while empowering youth to become community health advocates.",
+            image: "/dengue-awareness.jpg",
+            category: "Health & Community",
+            impactMetrics: { value: "Community", unit: "health" }
+        },
+        {
+            title: "Groundwater Recharge System",
             description: "Implemented 250 CCT trenches (8×2×2 ft) enabling approximately 2 crore litres of annual groundwater recharge, securing water for future generations.",
-            image: "/water-project.png",
+            image: "/groundwater-recharge.jpg",
             category: "Water Conservation",
             impactMetrics: { value: "2 Cr", unit: "litres/year" }
         },
         {
-            title: "Community Water Management",
-            description: "Developed roof water harvesting, large & small soak pits, and Nanded-pattern soak pits (250+) with 2.5 km channelised CCT network for rainwater management.",
-            image: "/community.png",
-            category: "Community",
-            impactMetrics: { value: "250+", unit: "soak pits" }
+            title: "Miyawaki Forest",
+            description: "Created 12 large Miyawaki forests at Hanuman Tekdi, Pipri Meghe, Arvi Road, converting barren plateau into thriving green ecosystems with 13,500+ saplings.",
+            image: "/miyawaki-forest.jpg",
+            category: "Environment",
+            impactMetrics: { value: "13,500+", unit: "saplings" }
+        },
+        {
+            title: "Pani Foundation Participation",
+            description: "Active collaboration with Pani Foundation in water conservation projects, implementing sustainable solutions for rural water security and community development.",
+            image: "/pani-foundation.jpg",
+            category: "Partnership",
+            impactMetrics: { value: "Community", unit: "collaboration" }
         },
         {
             title: "Wastewater Reuse Initiative",
@@ -35,20 +49,6 @@ const Projects = () => {
             image: "/water-project.png",
             category: "Water Conservation",
             impactMetrics: { value: "3L", unit: "litres/day" }
-        },
-        {
-            title: "Bhujal Moist Soil Appliance",
-            description: "Innovative technology for moisture retention and groundwater sustainability, ensuring long-term water security for agricultural and domestic use.",
-            image: "/hero-bg.png",
-            category: "Technology",
-            impactMetrics: { value: "Sustainable", unit: "solution" }
-        },
-        {
-            title: "Water Bank Project",
-            description: "₹4.5 lakh fund supporting water conservation initiatives across 18 villages in 4 talukas, empowering communities to manage their water resources.",
-            image: "/community.png",
-            category: "Community",
-            impactMetrics: { value: "18", unit: "villages" }
         }
     ];
 

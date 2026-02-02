@@ -73,6 +73,31 @@ cd client
 npm install
 ```
 
+```
+
+## Quick Start (Easiest Method)
+
+### Option 1: Windows Batch File (Recommended for Windows)
+Simply double-click `run_app.bat` in the project root directory. This will:
+- Start both frontend and backend servers in separate windows
+- Open the application automatically
+
+### Option 2: Python Launcher (Cross-Platform)
+```bash
+# From project root directory
+python run_app.py
+```
+
+This will:
+- Check if dependencies are installed
+- Start both servers with colored output
+- Monitor server status
+- Handle graceful shutdown with Ctrl+C
+
+### Option 3: Manual Start (Traditional Method)
+
+If you prefer to run servers manually, see the sections below.
+
 ## Running the Application
 
 ### Start Backend Server
